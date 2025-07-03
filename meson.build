@@ -13,3 +13,9 @@ executable('subset', ['subset.cpp'])
 executable('permutation', ['permutation.cpp'])
 executable('backtrack', ['backtrack.cpp'])
 executable('bits', ['bits.cpp'])
+
+# cses
+executable('1643_max_subarray_sum', ['cses/1643_max_subarray_sum.cpp'])
+executable('1072_two_knights', ['cses/1072_two_knights.cpp'])
+executable('1618_trailing_zeros', ['cses/1618_trailing_zeros.cpp'])
+executable('1094_increasing_array', ['cses/1094_increasing_array.cpp'])
