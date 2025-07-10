@@ -2,7 +2,12 @@ project(
     'handbook',
     'cpp',
     version: '0.1.0',
-    default_options: ['cpp_std=c++11', 'optimization=2', 'warning_level=1', 'debug=true'],
+    default_options: [
+        'cpp_std=c++11',
+        'optimization=2',
+        'warning_level=1',
+        'debug=true',
+    ],
 )
 
 executable('input', ['input.cpp'])
@@ -16,6 +21,7 @@ executable('bits', ['bits.cpp'])
 executable('binary_search', ['binary_search.cpp'])
 executable('max_customers', ['max_customers.cpp'])
 executable('deadlines', ['deadlines.cpp'])
+executable('data_structures', ['data_structures.cpp'])
 
 # cses
 executable('1643_max_subarray_sum', ['cses/1643_max_subarray_sum.cpp'])
