@@ -14,16 +14,19 @@ int main() {
 
   vector<ll> a(n);
 
-  for (size_t i = 0; i < n; i++) {
-    cin >> a[i];
-  }
+  cin >> a[0];
 
   ll kmax, best;
   best = kmax = a[0];
 
-  for (size_t k = 1; k < n; k++) {
+  size_t k = 1;
+  while (k < n) {
+    cin >> a[k];
     kmax = max(a[k], kmax + a[k]);
     best = max(kmax, best);
+
+    ++k;
   }
+
   cout << best;
 }
