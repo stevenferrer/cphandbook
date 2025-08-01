@@ -10,7 +10,7 @@ clang -std=c++11 -O2 -Wall test.cpp -o test
 
 ## How to build using meson
 
-- Setup build directory
+- Setup build directory (add `--reconfigure` when `meson.build` is updated)
 
 ```sh
 meson setup build
