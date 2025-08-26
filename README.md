@@ -16,14 +16,14 @@ clang -std=c++11 -O2 -Wall test.cpp -o test
 meson setup build
 ```
 
-- Build a target, for example, `lines`
+- Build a target, for example
 
 ```sh
-meson compile -C build lines
+meson compile -C build [target]
 ```
 
-- Clean the build directory
+- Clean the build directory (using [ninja](https://github.com/ninja-build/ninja) or [samurai](https://github.com/michaelforney/samurai))
 
 ```sh
-meson compile -C build --clean
+[ninja|samu] -C build clean
 ```
