@@ -5,28 +5,19 @@
 
 using namespace std;
 
-int powi(int base, unsigned int exp) {
-  int result = 1;
-  for (unsigned int k = 1; k <= exp; ++k) {
-    result *= base;
-  }
-  return result;
-}
-
 // since a successor graph only as one edge,
 // we model it as a 1-dim array
-int successor(vector<int> sgraph, int n, int x, int k) {
-
+int successor(vector<int> parent, int n, int x, int k) {
   int u = (int)ceil(log2(k));
 
-  printf("u = %d\n", u);
+  printf("u = ceil(log2(%d)) = %d\n", k, u);
 
-  // successor table
+  // Binary lifting table (successor)
   vector<vector<int>> table(u + 1, vector<int>(n + 1));
 
   // fill-in the 2^0=1 step
   for (int v = 1; v <= n; ++v) {
-    table[0][v] = sgraph[v];
+    table[0][v] = parent[v];
   }
 
   // fill-in the rest of 2^j step
@@ -58,15 +49,15 @@ int successor(vector<int> sgraph, int n, int x, int k) {
     cout << endl;
   }
 
-  // follow the successor path
+  // Follow the successor path
   int succ = x;
   for (int exp = u; exp >= 0; --exp) {
-    int kpow = powi(2, exp);
+    int kpow = k & (1 << exp);
     if (kpow > k) {
       continue;
     }
 
-    // printf("succ(%d, %d) = %d\n", succ, kpow, table[exp][succ]);
+    printf("succ(%d, %d) = %d\n", succ, kpow, table[exp][succ]);
 
     // next successor
     succ = table[exp][succ];
@@ -102,16 +93,16 @@ int cycleLength(vector<int> sgraph, int x) {
 }
 
 int main() {
-  cout << "2^0 = " << powi(2, 0) << endl;
+  cout << "2^0 = " << (1 << 0) << endl;
 
   int n = 9;
   vector<vector<int>> adjl;
 
   int x = 4, k = 11;
-  vector<int> sgraph1 = {0, 3, 5, 7, 6, 2, 2, 1, 6, 3};
-  printf("succ(%d, %d) = %d\n", x, k, successor(sgraph1, n, x, k));
+  vector<int> parent = {0, 3, 5, 7, 6, 2, 2, 1, 6, 3};
+  printf("succ(%d, %d) = %d\n", x, k, successor(parent, n, x, k));
 
-  printf("sgraph1 cycle length: %d\n", cycleLength(sgraph1, 2));
+  printf("sgraph1 cycle length: %d\n", cycleLength(parent, 2));
 
   vector<int> sgraph2 = {0, 2, 3, 4, 5, 6, 3};
   printf("sgraph2 cycle length: %d", cycleLength(sgraph2, 6));
