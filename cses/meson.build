@@ -54,3 +54,7 @@ executable('1646_static_range_sum_queries', ['1646_static_range_sum_queries.cpp'
 executable('1647_static_range_min_queries', ['1647_static_range_min_queries.cpp'])
 executable('1648_dyna_range_sum_queries', ['1648_dyna_range_sum_queries.cpp'])
 executable('1649_dyna_range_min_queries', ['1649_dyna_range_min_queries.cpp'])
+executable('1131_tree_diameter', ['1131_tree_diameter.cpp'])
+executable('1674_subordinates', ['1674_subordinates.cpp'])
+executable('1687_company_queries1', ['1687_company_queries1.cpp'])
+executable('1137_subtree_queries', ['1137_subtree_queries.cpp'])
